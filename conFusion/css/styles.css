@@ -38,16 +38,12 @@ body {
     background-color: #512DA8
 }
 
-.form-header {
-    background-color: #fcba03;
-    color: white;
-    margin: 0px auto;
-    padding-top: 10px;
-    padding-bottom: 5px;
-}
-
 .form-row {
     padding: 10px 0px 0px 0px;
+}
+
+.form-button {
+    padding: 20px 0px 0px 0px;
 }
 
 .carousel {
