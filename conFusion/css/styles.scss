@@ -71,3 +71,19 @@ body {
     bottom: 0px;
     z-index: 1;
 }
+
+.modal {
+    .modal-header {
+        background-color: $background-dark;
+        color: floralwhite;
+    }
+    #loginCancelButton {
+        color: floralwhite;
+    }
+    #reserveCancelButton {
+        color: floralwhite;
+    }
+    .modal-body {
+        background-color: $background-light;
+    }
+}
