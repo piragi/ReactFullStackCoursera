@@ -394,7 +394,82 @@ adding mixins:
 	padding: @pad-up-dn @pad-left-right;
 }
 ```
+nesting selectors:
 ```html
+.carousel {
+    background:@background-dark;
+
+    .carousel-item {
+        height: @carousel-item-height;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-height: 300px;
+        }
+    }
+}
+
+#carouselButton {
+    right:0px;
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+}
 ```
+compile less:
+```
+lessc styles.less styles.css
+```
+### Sass
+scss variables:
 ```html
+$lt-gray: #ddd;
+$background-dark: #512DA8;
+$background-light: #9575CD;
+$background-pale: #D1C4E9;
+
+// Height variables
+$carousel-item-height: 300px;
+
+```
+scss mixins:
+```html
+@mixin zero-margin($pad-up-dn, $pad-left-right) {
+	margin:0px auto;
+	padding: $pad-up-dn $pad-left-right;
+}
+```
+nesting selectors:
+```html
+.carousel {
+    background:$background-dark;
+
+    .carousel-item {
+        height: $carousel-item-height;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-height: 300px;
+        }
+    }
+}
+
+#carouselButton {
+    right:0px;
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+}
+```
+in the package.json file add:
+```
+"scss": "node-sass -o css/ css/"
+```
+run scss:
+
+
+```
+npm run scss
 ```
