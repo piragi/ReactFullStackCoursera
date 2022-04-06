@@ -161,18 +161,175 @@ adding submit button:
                     </div>
 ```
 ### Tables and Cards
-
+bootstrap tables:
+```html
+        <div class="row row-content">
+            <div class="col-12 col-sm-9">
+                <h2>Facts &amp; Figures</h2>
+            </div>
+             <div class="col-12 col-sm-3">
+            </div>
+       </div> 
+```
+bootstrap cards:
+```html
+            <div class="col-12 col-sm-6">
+                <div class="card">
+                    <h3 class="card-header bg-primary text-white">Facts At a Glance</h3>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-6">Started</dt>
+                            <dd class="col-6">3 Feb. 2013</dd>
+                            <dt class="col-6">Major Stake Holder</dt>
+                            <dd class="col-6">HK Fine Foods Inc.</dd>
+                            <dt class="col-6">Last Year's Turnover</dt>
+                            <dd class="col-6">$1,250,375</dd>
+                            <dt class="col-6">Employees</dt>
+                            <dd class="col-6">40</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+```
 ### Images and Media
-### Alerting Users
+adding media objects:
+```html
+                <div class="media">
+                    <img class="d-flex mr-3 img-thumbnail align-self-center"
+                            src="img/uthappizza.png" alt="Uthappizza">
+                    <div class="media-body">
+                        <h2 class="mt-0">Uthappizza</h2>
+                        <p class="d-none d-sm-block">A unique combination of Indian Uthappam (pancake) and
+                            Italian pizza, topped with Cerignola olives, ripe vine
+                            cherry tomatoes, Vidalia onion, Guntur chillies and
+                            Buffalo Paneer.</p>
+                    </div>
+                </div>
 
+```
+### Alerting Users
+different badges:
+```html
+<span class="badge badge-danger">HOT</span>
+<span class="badge badge-pill badge-secondary">$4.99</span>
+```
 ## Week 3
 
 ### Tabs, Pills and Tabbed Navigation
+adding tabs:
+```html
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#peter"
+                        role="tab" data-toggle="tab">Peter Pan, CEO</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#danny" role="tab"
+                        data-toggle="tab">Danny Witherspoon, CFO</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#agumbe"role="tab"
+                        data-toggle="tab">Agumbe Tang, CTO</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#alberto" role="tab"
+                        data-toggle="tab">Alberto Somayya, Exec. Chef</a>
+                    </li>
+                </ul>
+```
+tab-content and tab-pane:
+```html
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade show active" id="peter">
+                        <h3>Peter Pan <small>Chief Epicurious Officer</small></h3>
+                        <p> ... </p>
+                    </div>
+                </div>
+```
 ### Collapse and Accordion
+accordion:
+```html
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" role="tab" id="peterhead">
+                        <h3 class="mb-0">
+                            <a data-toggle="collapse" data-target="#peter">
+                            Peter Pan <small>Chief Epicurious Officer</small>
+                            </a>
+                        </h3>
+                        </div>
+                        <div class="collapse show" id="peter" data-parent="#accordion">
+                            <div class="card-body">
+                                <p class="d-none d-sm-block">. . .</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+```
 ### Tooltips, Popovers and Modals
-
-
+adding tooltip:
+```html
+                    <a role="button" class="btn btn-block nav-link btn-warning"
+                        data-toggle="tooltip" data-html="true"  title="Or Call us at  <br><strong>+852 12345678</strong>"
+                        data-placement="bottom" href="#reserveform">Reserve Table</a>
+```
+activated through javascript
+```html
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+```
+modals:
+```html
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                                    <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                                <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
+                            </div>
+                            <div class="col-sm-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>        
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+```
+trigger the modal:
+```html
+                <span class="navbar-text">
+                    <a data-toggle="modal" data-target="#loginModal">
+                    <span class="fa fa-sign-in"></span> Login</a>
+                </span>
+```
 ## Week 4
 
 ### Bootstrap and JQery
 ### Less and Sass
+```html
+```
