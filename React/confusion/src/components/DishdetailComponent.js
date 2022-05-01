@@ -40,13 +40,13 @@ class DishDetail extends Component {
                                 {comment.comment}
                             </ul>
                             <ul>
-                                { "-- " + comment.author + ", " + date.toLocaleString('default', {month: 'short'}) + " " + date.getDate() + ", " + date.getFullYear()}
+                                { "-- " + comment.author + ", " + date.toLocaleString('default', {year: 'numeric', month: 'short', day:"2-digit"})}
                             </ul>
                         </div>
                     );
                 
             });
-            
+
             return (
                 <div className='col-12 col-md-7 mt-1'>
                     <h4>Comments:</h4>
