@@ -58,25 +58,25 @@ function RenderComment({ dish }) {
 
 const DishDetail = (props) => {
     return (
-        <div className='container'>
-            <div className='row'>
+        <div className="container">
+            <div className="row">
                 <Breadcrumb>
-                    <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
+
+                    <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
                     <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
                 </Breadcrumb>
-                <div className='col-12'>
+                <div className="col-12">
                     <h3>{props.dish.name}</h3>
                     <hr />
                 </div>
-                <div className='row'>
-                    <div className='col-12 col-md-5 m-1'>
-                        <RenderDish dish={props.dish} />
-                    </div>
-                    <div className='col-12 col-md-5 m-1'>
-                        <RenderComment dish={props.comment} />
-                    </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-5 m-1">
+                    <RenderDish dish={props.dish} />
                 </div>
-
+                <div className="col-12 col-md-5 m-1">
+                    <RenderComment comments={props.comments} />
+                </div>
             </div>
         </div>
     );
