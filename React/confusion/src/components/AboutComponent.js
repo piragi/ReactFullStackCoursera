@@ -1,12 +1,15 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import RenderLeader from './RenderLeader';
 
 function About(props) {
 
     const leaders = props.leaders.map((leader) => {
         return (
-            <p>Leader {leader.name}</p>
+           <RenderLeader leader={leader}>
+                {leader}
+           </RenderLeader>
         );
     });
 
@@ -62,7 +65,7 @@ function About(props) {
             </div>
             <div className="row row-content">
                 <div className="col-12">
-                    <h2>Corporate Leadership</h2>
+                    <h1>Corporate Leadership</h1>
                 </div>
                 <div className="col-12">
                     <Media list>
