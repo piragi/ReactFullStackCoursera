@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cross-fetch": "2.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-redux": "5.0.7",
