@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Breadcrumb, BreadcrumbItem,
-    Button, Row, Col, Label } from 'reactstrap';
-import { Control, LocalForm, Errors } from 'react-redux-form';
+import {
+    Breadcrumb, BreadcrumbItem,
+    Button, Row, Col, Label
+} from 'reactstrap';
+import { Control, Form, Errors, actions } from 'react-redux-form';
 
 class Contact extends Component {
 
@@ -33,8 +35,8 @@ class Contact extends Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name
-        
-        this.setState( {
+
+        this.setState({
             [name]: value
         });
         console.log(this.state)
@@ -43,13 +45,13 @@ class Contact extends Component {
     handleSubmit(values) {
         console.log('Current State is: ' + JSON.stringify(values));
         alert('Current State is: ' + JSON.stringify(values));
-        console.log(this.state);
+        this.props.resetFeedbackForm();
         //event.preventDefault();
     }
 
     handleBlur = field => () => {
         this.setState({
-            touched: {...this.state.touched, [field]: true}
+            touched: { ...this.state.touched, [field]: true }
         })
     }
 
@@ -75,12 +77,12 @@ class Contact extends Component {
         if (this.state.touched.telnum && !reg.test(telnum))
             errors.telnum = 'Tel. Number should contain only numbers';
 
-        if(this.state.touched.email && email.split('').filter(x => x === '@').length !== 1)
+        if (this.state.touched.email && email.split('').filter(x => x === '@').length !== 1)
             errors.email = 'Email should contain a @';
 
         return errors;
     }
-    
+
     render() {
         const errors = this.validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email);
         const required = (val) => val && val.length;
@@ -118,12 +120,12 @@ class Contact extends Component {
                     </div>
                 </div>
                 <div className="row row-content">
-                   <div className="col-12">
-                      <h3>Send us your Feedback</h3>
-                   </div>
+                    <div className="col-12">
+                        <h3>Send us your Feedback</h3>
+                    </div>
                     <div className="col-12 col-md-9">
-                    <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
-                    <Row className="form-group">
+                        <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
+                            <Row className="form-group">
                                 <Label htmlFor="firstname" md={2}>First Name</Label>
                                 <Col md={10}>
                                     <Control.text model=".firstname" id="firstname" name="firstname"
@@ -132,7 +134,7 @@ class Contact extends Component {
                                         validators={{
                                             required, minLength: minLength(3), maxLength: maxLength(15)
                                         }}
-                                         />
+                                    />
                                     <Errors
                                         className="text-danger"
                                         model=".firstname"
@@ -142,7 +144,7 @@ class Contact extends Component {
                                             minLength: 'Must be greater than 2 characters',
                                             maxLength: 'Must be 15 characters or less'
                                         }}
-                                     />
+                                    />
                                 </Col>
                             </Row>
                             <Row className="form-group">
@@ -154,7 +156,7 @@ class Contact extends Component {
                                         validators={{
                                             required, minLength: minLength(3), maxLength: maxLength(15)
                                         }}
-                                         />
+                                    />
                                     <Errors
                                         className="text-danger"
                                         model=".lastname"
@@ -164,7 +166,7 @@ class Contact extends Component {
                                             minLength: 'Must be greater than 2 characters',
                                             maxLength: 'Must be 15 characters or less'
                                         }}
-                                     />
+                                    />
                                 </Col>
                             </Row>
                             <Row className="form-group">
@@ -176,7 +178,7 @@ class Contact extends Component {
                                         validators={{
                                             required, minLength: minLength(3), maxLength: maxLength(15), isNumber
                                         }}
-                                         />
+                                    />
                                     <Errors
                                         className="text-danger"
                                         model=".telnum"
@@ -187,7 +189,7 @@ class Contact extends Component {
                                             maxLength: 'Must be 15 numbers or less',
                                             isNumber: 'Must be a number'
                                         }}
-                                     />
+                                    />
                                 </Col>
                             </Row>
                             <Row className="form-group">
@@ -199,7 +201,7 @@ class Contact extends Component {
                                         validators={{
                                             required, validEmail
                                         }}
-                                         />
+                                    />
                                     <Errors
                                         className="text-danger"
                                         model=".email"
@@ -208,16 +210,16 @@ class Contact extends Component {
                                             required: 'Required',
                                             validEmail: 'Invalid Email Address'
                                         }}
-                                     />
+                                    />
                                 </Col>
                             </Row>
-                        </LocalForm>
+                        </Form>
                     </div>
-               </div>
+                </div>
             </div>
         );
     }
-    
+
 }
 
 export default Contact;
