@@ -8,19 +8,25 @@ import Link from 'react-router-dom/Link';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components'
 
 
 function RenderDish({ dish }) {
     if (dish != null) {
         return (
             <div key={dish.id} className="col-12 mt-1">
-                <Card>
-                    <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
-                    <CardBody>
-                        <CardTitle>{dish.name}</CardTitle>
-                        <CardText>{dish.description}</CardText>
-                    </CardBody>
-                </Card>
+                <FadeTransform in
+                    transformProps={{
+                        exitTransform: 'scale(0.5) translateY(-50%)'
+                    }}>
+                    <Card>
+                        <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
+                        <CardBody>
+                            <CardTitle>{dish.name}</CardTitle>
+                            <CardText>{dish.description}</CardText>
+                        </CardBody>
+                    </Card>
+                </FadeTransform>
             </div>
         )
     }
@@ -37,15 +43,19 @@ function RenderComment({ comments, postComment, dishId }) {
         const comment = comments.map((comment) => {
             var date = new Date(comment.date);
             return (
-                <div className="col-12 mt-1">
-                    <ul class="list-unstyled">
-                        {comment.comment}
-                    </ul>
-                    <ul class="list-unstyled">
-                        {"-- " + comment.author + ", " + date.toLocaleString('default', { year: 'numeric', month: 'short', day: "2-digit" })}
-                    </ul>
+                <Stagger in>
+                    <div className="col-12 mt-1">
+                        <Fade in>
+                            <ul class="list-unstyled">
 
-                </div>
+                                {comment.comment}
+                                {"-- " + comment.author + ", " + date.toLocaleString('default', { year: 'numeric', month: 'short', day: "2-digit" })}
+
+                            </ul>
+                        </Fade>
+
+                    </div >
+                </Stagger>
             );
 
         });
