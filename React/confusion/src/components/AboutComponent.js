@@ -2,9 +2,6 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import RenderLeader from './RenderLeader';
-import { useEffect } from 'react'
-import { fetchLeaders } from '../redux/ActionCreators';
-import { actions } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 
 
