@@ -46,6 +46,7 @@ class Main extends Component {
     }
 
     componentDidMount() {
+        console.log("did mount main");
         this.props.fetchLeaders();
         this.props.fetchDishes();
         this.props.fetchComments();
@@ -63,8 +64,8 @@ class Main extends Component {
                     promosLoading={this.props.promotions.isLoading}
                     promosErrMess={this.props.promotions.errMess}
                     leader={this.props.leaders.leaders.filter((leader) => leader.featured)[0]}
-                    leaderLoading={this.props.leaders.isLoading}
-                    leaderErrMess={this.props.leaders.errMess}
+                    leadersLoading={this.props.leaders.isLoading}
+                    leadersErrMess={this.props.leaders.errMess}
                 />
             );
         };
