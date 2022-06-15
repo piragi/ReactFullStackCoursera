@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar } from 'reactstrap'
-import { NavbarBrand } from 'reactstrap';
 import Menu from './MenuComponent';
-import { DISHES } from '../shared/dishes';
 import DishDetail from './DishdetailComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
@@ -10,9 +7,6 @@ import Home from './HomeComopnent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import Contact from './ContactComponent';
-import { LEADERS } from '../shared/leaders';
-import { PROMOTIONS } from '../shared/promotions';
-import { COMMENTS } from '../shared/comments';
 import About from './AboutComponent';
 import { postFeedback, postComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
@@ -46,7 +40,6 @@ class Main extends Component {
     }
 
     componentDidMount() {
-        console.log("did mount main");
         this.props.fetchLeaders();
         this.props.fetchDishes();
         this.props.fetchComments();

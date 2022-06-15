@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {
-    Breadcrumb, BreadcrumbItem,
     Button, Row, Col, Label
 } from 'reactstrap';
-import { Control, Form, Errors, actions } from 'react-redux-form';
+import { Control, Form, Errors } from 'react-redux-form';
 
 class Contact extends Component {
 
