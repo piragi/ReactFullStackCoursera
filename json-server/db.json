@@ -201,13 +201,6 @@
       "comment": "It's your birthday, we're gonna party!",
       "author": "25 Cent",
       "date": "2011-12-02T17:57:28.556094Z"
-    },
-    {
-      "dishId": 2,
-      "author": "Julius",
-      "comment": "Hi",
-      "date": "2022-06-13T17:58:01.407Z",
-      "id": 20
     }
   ],
   "promotions": [
@@ -270,6 +263,17 @@
       "message": "afadsfds",
       "date": "2017-12-04T09:41:49.890Z",
       "id": 1
+    },
+    {
+      "firstname": "ddddddddd",
+      "lastname": "ddddddddddddd",
+      "telnum": "1111111111111",
+      "email": "julius.sula@gmail.com",
+      "agree": true,
+      "contactType": "Tel.",
+      "message": "ddddddddddddd",
+      "date": "2022-06-15T11:46:26.674Z",
+      "id": 2
     }
   ]
 }
