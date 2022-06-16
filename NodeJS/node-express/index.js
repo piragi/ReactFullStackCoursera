@@ -13,6 +13,12 @@ app.use(morgan('dev'));
 const dishRouter = require('./routes/dishRouter');
 app.use('/dishes', dishRouter);
 
+const promoRouter = require('./routes/promoRouter');
+app.use('/dishes', promoRouter);
+
+const leaderRouter = require('./routes/leaderRouter');
+app.use('/dishes', leaderRouter);
+
 app.use(express.static(__dirname + '/public'));
 
 app.use((req, res, next) => {
