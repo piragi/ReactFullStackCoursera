@@ -17,6 +17,8 @@ var leaderRouter = require('./routes/leaderRouter');
 var passport = require('passport');
 var authenticate = require('./authenticate');
 
+var config = require('./config');
+
 const mongoose = require('mongoose');
 
 const Dishes = require('./models/dishes');
@@ -24,7 +26,7 @@ const Promotions = require('./models/promotions');
 const Leaders = require('./models/leaders');
 
 
-const url = 'mongodb://localhost:27017/conFusion';
+const url = config.mongoUrl;
 const connect = mongoose.connect(url);
 
 connect.then((db) => {
